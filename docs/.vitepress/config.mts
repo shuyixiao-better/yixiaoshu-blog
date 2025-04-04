@@ -2,8 +2,8 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "江湖码路人俱乐部",
-  description: "舒一笑博客",
+  title: "舒一笑博客",
+  description: "江湖码路人俱乐部",
   head: [["link", { rel: "icon", href: "/微笑.svg" }]], // 浏览器标签页logo
   themeConfig: {
     logo: "/微笑.svg",
