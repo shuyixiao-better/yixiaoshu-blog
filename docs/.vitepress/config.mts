@@ -3,8 +3,10 @@ import { defineConfig } from 'vitepress'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "江湖码路人俱乐部",
-  description: "舒一笑博客（）",
+  description: "舒一笑博客",
+  head: [["link", { rel: "icon", href: "/微笑.svg" }]], // 浏览器标签页logo
   themeConfig: {
+    logo: "/微笑.svg",
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
@@ -37,6 +39,11 @@ export default defineConfig({
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
-    ]
+    ],
+    // 项目首页的footer
+    footer: {
+      message: "基于 MIT 许可发布",
+      copyright: "版权所有 © 2023-2025 舒一笑不秃头",
+    },
   }
 })
