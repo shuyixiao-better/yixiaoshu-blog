@@ -2,8 +2,8 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "舒一笑博客",
-  description: "江湖码路人俱乐部",
+  title: "舒一笑不秃头",
+  description: "笑谈技术栈",
   head: [["link", { rel: "icon", href: "/微笑.svg" }]], // 浏览器标签页logo
   themeConfig: {
     logo: "/微笑.svg",
@@ -11,7 +11,11 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Examples', link: '/markdown-examples' },
-      { text: '我的博客系列', 
+      {
+        text: '字节码炼金术',
+        link: '/ai-notes'
+      },
+      { text: '我的博客系列',
         items: [
           { text: "掘金", link: "https://juejin.cn/user/4257747754552599" },
           { text: "CSDN", link: "https://blog.csdn.net/weixin_50503886?spm=1000.2115.3001.5343" },
@@ -26,13 +30,39 @@ export default defineConfig({
         ]
       }
     ],
-
     sidebar: [
       {
         text: 'Examples',
         items: [
           { text: 'Markdown Examples', link: '/markdown-examples' },
           { text: 'Runtime API Examples', link: '/api-examples' }
+        ]
+      },
+      {
+        text: '字节码炼金术',
+        collapsible: true, // 可折叠分组
+        items: [
+          {
+            text: 'GPT初探',
+            link: '/ai-notes/GPT初探',
+            // 若需要多级目录可嵌套配置[6](@ref)
+            items: [
+              { text: 'OpenAI GPT系列模型发展解析', link: '/ai-notes/OpenAI GPT系列模型发展解析/OpenAI GPT系列模型发展解析' },
+              { text: '大模型技术发展与应用总结', link: '/ai-notes/大模型技术发展与应用总结/大模型技术发展与应用总结' }
+            ]
+          },
+          { text: '深度学习实践', link: '/ai-notes/deep-learning' },
+          { text: '大模型微调指南', link: '/ai-notes/fine-tuning' },
+          {
+            text: 'AI写作工具测评',
+            link: '/ai-notes/writing-tools',
+            // 引用搜索结果中的工具列表[3](@ref)
+            items: [
+              { text: '笔尖AI写作', link: '/ai-notes/tools/bijian' },
+              { text: '文心一言应用', link: '/ai-notes/tools/wenxin' },
+              { text: '通义千问实践', link: '/ai-notes/tools/tongyi' }
+            ]
+          }
         ]
       }
     ],
