@@ -1,12 +1,50 @@
+// defineConfig 辅助函数将为配置选项提供 TypeScript 支持的智能提示
 import { defineConfig } from 'vitepress'
 
-// https://vitepress.dev/reference/site-config
+// https://vitepress.dev/zh/reference/site-config
 export default defineConfig({
+  // 应用级配置选项
+  lang: 'en-US',
   title: "舒一笑不秃头",
   description: "笑谈技术栈",
-  head: [["link", { rel: "icon", href: "/微笑.svg" }]], // 浏览器标签页logo
+  head: [
+      // 浏览器标签页logo
+      ["link", { rel: "icon", href: "/base/微笑.svg" }],
+      // 谷歌字体
+      ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
+      ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
+      ['link', { href: 'https://fonts.googleapis.com/css2?family=Roboto&display=swap', rel: 'stylesheet' }
+      ]
+  ],
+  // 站点配置选项是否需要加前缀 示例 全部加则是'/base/'
+  base: '/',
+  //  URL 中删除 .html 后缀
+  cleanUrls: true,
+  // 相对于项目根目录的 markdown 文件所在的文件夹
+  srcDir: './blog',
+  // 匹配应排除作为源内容输出的 markdown 文件
+  srcExclude: ['**/README.md', '**/TODO.md'],
+  // 默认输出dist位置
+  outDir: '../packageTheFile',
+  // 忽略死链接 目前随便配置后面要改
+  ignoreDeadLinks: [
+    // 忽略精确网址 "/playground"
+    '/playground',
+    // 忽略所有 localhost 链接
+    /^https?:\/\/localhost/,
+    // 忽略所有包含 "/repl/" 的链接
+    /\/repl\//,
+    // 自定义函数，忽略所有包含 "ignore "的链接
+    (url) => {
+      return url.toLowerCase().includes('ignore')
+    }
+  ],
+  // 页面元数据提取到单独的 JavaScript 块 可缓存
+  metaChunk: true,
+  // 显示最后更新时间
+  lastUpdated: true,
   themeConfig: {
-    logo: "/微笑.svg",
+    logo: "/base/微笑.svg",
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
@@ -75,5 +113,13 @@ export default defineConfig({
       message: "基于 MIT 许可发布",
       copyright: "版权所有 © 2023-2025 舒一笑不秃头",
     },
+    lastUpdated: {
+      text: '最近更新',  // 自定义前缀文本[4](@ref)
+      formatOptions: {
+        dateStyle: 'full',    // 完整日期（如 "2025年4月7日星期一"）
+        timeStyle: 'medium',  // 中等精度时间（如 "15:04:05"）
+        forceLocale: true     // 强制使用站点语言环境[4](@ref)
+      }
+    }
   }
 })
