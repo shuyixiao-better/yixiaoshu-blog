@@ -9,7 +9,7 @@ export default defineConfig({
   description: "笑谈技术栈",
   head: [
       // 浏览器标签页logo
-      ["link", { rel: "icon", href: "/base/微笑.svg" }],
+      ["link", { rel: "icon", href: "/微笑.svg" }],
       // 谷歌字体
       ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
       ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
@@ -44,7 +44,7 @@ export default defineConfig({
   // 显示最后更新时间
   lastUpdated: true,
   themeConfig: {
-    logo: "/base/微笑.svg",
+    logo: "/微笑.svg",
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
