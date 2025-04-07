@@ -48,6 +48,7 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
+      { text: 'Java程序员眼中的PyTorch', link: '/PyTorch/PyTorch初认识' },
       { text: 'Examples', link: '/markdown-examples' },
       {
         text: '字节码炼金术',
